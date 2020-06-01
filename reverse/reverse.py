@@ -40,8 +40,9 @@ class LinkedList:
 
     def reverse_list(self, node, prev=None):
         def reverse_recursively(self, node, prev=None):
-            #Node is none
+            #Node is not none
             if node.next != None:
                 self.reverse_recursively(node.next, prev=node)
-                # switch the next node to prev
+                #switch the next node to prev
             node.next = prev
+            return reverse_recursively(node, prev)
