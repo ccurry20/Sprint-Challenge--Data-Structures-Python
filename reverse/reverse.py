@@ -38,11 +38,17 @@ class LinkedList:
 
         return False
 
-    def reverse_list(self, node, prev=None):
-        def reverse_recursively(self, node, prev=None):
-            #Node is not none
-            if node.next != None:
-                self.reverse_recursively(node.next, prev=node)
-                #switch the next node to prev
-            node.next = prev
-            return reverse_recursively(node, prev)
+    def reverse_list(self, node, prev):
+        if self.head is None:
+            return
+            #if node is None
+        if node.get_next() is None:
+           #set head to this node
+            self.head =  node
+            return
+            #pass next node and prev to reverse method)
+        self.reverse_list(node.get_next(), prev)
+        
+        new_node = node.get_next()
+        new_node.set_next(node)
+   
